@@ -205,9 +205,12 @@ public class SmoothDateRangePickerFragment extends DialogFragment implements OnC
      */
     public static SmoothDateRangePickerFragment newInstance(OnDateRangeSetListener callBack, int year,
                                                     int monthOfYear,
-                                                    int dayOfMonth) {
+                                                    int dayOfMonth,
+													int endYear,
+													int endMonth,
+													int endDay) {
         SmoothDateRangePickerFragment ret = new SmoothDateRangePickerFragment();
-        ret.initialize(callBack, year, monthOfYear, dayOfMonth);
+        ret.initialize(callBack, year, monthOfYear, dayOfMonth, endYear, endMonth, endDay);
         return ret;
     }
 
@@ -223,14 +226,14 @@ public class SmoothDateRangePickerFragment extends DialogFragment implements OnC
         return ret;
     }
 
-    public void initialize(OnDateRangeSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
+    public void initialize(OnDateRangeSetListener callBack, int year, int monthOfYear, int dayOfMonth, int endYear, int endMonth, int endDay) {
         mCallBack = callBack;
         mCalendar.set(Calendar.YEAR, year);
         mCalendar.set(Calendar.MONTH, monthOfYear);
         mCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-        mCalendarEnd.set(Calendar.YEAR, year);
-        mCalendarEnd.set(Calendar.MONTH, monthOfYear);
-        mCalendarEnd.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+        mCalendarEnd.set(Calendar.YEAR, endYear);
+        mCalendarEnd.set(Calendar.MONTH, endMonth);
+        mCalendarEnd.set(Calendar.DAY_OF_MONTH, endDay);
 
         mThemeDark = false;
         mAccentColor = -1;
