@@ -172,15 +172,15 @@ public class SmoothDateRangePickerFragment extends DialogFragment implements OnC
     public interface OnDateRangeSetListener {
 
         /**
-         * @param view             The view associated with this listener.
-         * @param yearStart        The start year that was set.
+         * @param view       The view associated with this listener.
+         * @param yearStart  The start year that was set.
          * @param monthStart The start month that was set (0-11) for compatibility
-         *                         with {@link Calendar}.
-         * @param dayStart  The start day of the month that was set.
-         * @param yearEnd          The end year that was set.
+         *                   with {@link Calendar}.
+         * @param dayStart   The start day of the month that was set.
+         * @param yearEnd    The end year that was set.
          * @param monthEnd   The end month that was set (0-11) for compatibility
-         *                         with {@link Calendar}.
-         * @param dayEnd    The end day of the month that was set.
+         *                   with {@link Calendar}.
+         * @param dayEnd     The end day of the month that was set.
          */
         void onDateRangeSet(SmoothDateRangePickerFragment view, int yearStart, int monthStart,
                             int dayStart, int yearEnd, int monthEnd, int dayEnd);
@@ -204,11 +204,11 @@ public class SmoothDateRangePickerFragment extends DialogFragment implements OnC
      * @param dayOfMonth  The initial day of the dialog.
      */
     public static SmoothDateRangePickerFragment newInstance(OnDateRangeSetListener callBack, int year,
-                                                    int monthOfYear,
-                                                    int dayOfMonth,
-													int endYear,
-													int endMonth,
-													int endDay) {
+                                                            int monthOfYear,
+                                                            int dayOfMonth,
+                                                            int endYear,
+                                                            int endMonth,
+                                                            int endDay) {
         SmoothDateRangePickerFragment ret = new SmoothDateRangePickerFragment();
         ret.initialize(callBack, year, monthOfYear, dayOfMonth, endYear, endMonth, endDay);
         return ret;
@@ -222,6 +222,7 @@ public class SmoothDateRangePickerFragment extends DialogFragment implements OnC
         SmoothDateRangePickerFragment ret = new SmoothDateRangePickerFragment();
         Calendar todayCal = Calendar.getInstance();
         ret.initialize(callBack, todayCal.get(Calendar.YEAR), todayCal.get(Calendar.MONTH),
+                todayCal.get(Calendar.DAY_OF_MONTH), todayCal.get(Calendar.YEAR), todayCal.get(Calendar.MONTH),
                 todayCal.get(Calendar.DAY_OF_MONTH));
         return ret;
     }
